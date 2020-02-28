@@ -1,6 +1,7 @@
 package hu.sell.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import hu.sell.enums.ProductStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -17,7 +18,6 @@ import java.util.Date;
  */
 @Entity
 @Data
-@DynamicUpdate
 public class ProductInfo implements Serializable {
 
     private static final long serialVersionUID = 6399186181668983148L;
@@ -45,6 +45,8 @@ public class ProductInfo implements Serializable {
      */
     private String productDescription;
 
+    private Integer categoryType;
+
     /**
      * 小图.
      */
@@ -53,7 +55,7 @@ public class ProductInfo implements Serializable {
     /**
      * 状态, 0正常1下架.
      */
-
+    private Integer productStatus = ProductStatusEnum.UP.getCode();
 
     /**
      * 图片链接加host拼接成完整 url

@@ -1,5 +1,7 @@
 package hu.sell.dataobject;
 
+import hu.sell.enums.OrderStatusEnum;
+import hu.sell.enums.PayStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -57,5 +59,15 @@ public class OrderMaster {
      * 更新时间.
      */
     private Date updateTime;
+
+    /**
+     * 订单状态, 默认为0新下单.
+     */
+    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+
+    /**
+     * 支付状态, 默认为0未支付.
+     */
+    private Integer payStatus = PayStatusEnum.WAIT.getCode();
 
 }
